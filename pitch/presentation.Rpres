@@ -1,0 +1,57 @@
+ShinyApp: Guess the House Price!
+========================================================
+author: Yilun Zhang
+date: `r format(Sys.Date(), format="%B %d %Y")`
+
+<small>
+Statistics and Computational Mathematics  
+Univesity of Waterloo  
+E: yl5zhang@uwaterloo.ca  
+T: +1 (519) 998-3545  
+</small>
+
+Introduction
+========================================================
+
+This shiny app is design for people to estimate the house price by providing the following criteria:
+
+- **Number of bedroom**
+- **Number of bathroom**
+- **New or old**
+- **Size of the house**
+
+It also allows users to input their estimated price and compared to the predicted price from the collected set of data.
+
+The Data
+========================================================
+
+```{r, echo=FALSE}
+setwd("F:/Documents/University/3A 2014 WT4 Fall/coursera/Data Science 9 - Developing Data Products/ShinyApps-Project/pitch/")
+data <- read.table("house.txt",header=T)
+data <- data[,3:7]
+```
+
+Below is the head of the data that is being used to predict the house price in this application.
+
+```{r}
+head(data)
+```
+In the data, "Beds", "Baths" and "New" are the categorical variables, and "Size" is numerical.
+"Price" is the depended variable.
+
+ShinyApp Interface - Input
+========================================================
+
+![alt text](01.png)
+
+
+ShinyApp Interface - Output
+========================================================
+
+![alt text](02.png)
+<small style="font-size:.7em">
+After clicing the button, the App will use your input information to predict the house price and return the expected value and it will also show you the difference between the expected value and your guess price.
+
+Isn't it nice?
+
+Try it out at: [http://yilunzhang.shinyapps.io/ShinyApps-Project](http://yilunzhang.shinyapps.io/ShinyApps-Project)

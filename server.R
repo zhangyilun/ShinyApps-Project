@@ -24,7 +24,7 @@ shinyServer(
         # calculate predicted house price
 
         output$oid6 <- renderText({
-            if (input$go == 1) {
+            if (input$go > 0) {
                 predicted <- predict(model,data.frame(Beds=factor(input$beds),
                                                       Baths=factor(input$baths),
                                                       New=if ({input$new} == "1") {factor(1)} else{factor(0)},
@@ -36,7 +36,7 @@ shinyServer(
         # calculate the difference from your prediction
         
         output$oid7 <- renderPrint({
-            if (input$go == 1) {
+            if (input$go > 0) {
                 predicted <- predict(model,data.frame(Beds=factor(input$beds),
                                                   Baths=factor(input$baths),
                                                   New=if ({input$new} == "1") {factor(1)} else{factor(0)},
